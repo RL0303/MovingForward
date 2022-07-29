@@ -15,7 +15,8 @@ class ShowViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.systemOrange
+//        view.backgroundColor = UIColor.systemOrange
+        setupGradientBackground()
         lyricLabel.text = lyrics[index]
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
             self.nextLyric()
@@ -27,6 +28,17 @@ class ShowViewController: UIViewController {
             
             timer?.invalidate()
     }
+    
+    func setupGradientBackground() {
+         let gradientLayer = CAGradientLayer()
+         gradientLayer.frame = view.bounds
+         gradientLayer.colors = [
+            CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 1),
+            CGColor(srgbRed: 255/255, green: 153/255, blue: 51/255, alpha: 1)
+         ]
+         view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+
     
     func nextLyric() {
             index = (index + 1) % lyrics.count
