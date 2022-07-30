@@ -6,27 +6,58 @@
 //
 
 import UIKit
+import SpriteKit
+
 
 class ShowViewController: UIViewController {
 
     @IBOutlet weak var lyricLabel: UILabel!
     
+    @IBOutlet weak var bear1ImageView: UIImageView!
+    
+    @IBOutlet weak var bear2ImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-//        view.backgroundColor = UIColor.systemOrange
+        //        view.backgroundColor = UIColor.systemOrange
         setupGradientBackground()
+        
+        //        lyrics
         lyricLabel.text = lyrics[index]
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
             self.nextLyric()
         }
+        
+        //        bearGIF
+        guard let data = NSDataAsset(name: "animated-bear-image-260")?.data else { return }
+        let cfData = data as CFData
+        CGAnimateImageDataWithBlock(cfData, nil) { (_, cgImage, _) in
+
+            self.bear1ImageView.image = UIImage(cgImage: cgImage)
+            self.bear2ImageView.image = UIImage(cgImage: cgImage)
+        }
+        
+        // particle
+        let skView = SKView(frame: view.frame)
+        view.insertSubview(skView, at: 0)
+        skView.backgroundColor = UIColor.clear
+        
+        let scene = SKScene(size: skView.frame.size)
+        scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        scene.backgroundColor = UIColor.clear
+        
+        let emitterNode = SKEmitterNode(fileNamed: "MyParticle")
+        scene.addChild(emitterNode!)
+        skView.presentScene(scene)
+        view.addSubview(skView)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-            super.viewDidDisappear(animated)
-            
-            timer?.invalidate()
+        super.viewDidDisappear(animated)
+        
+        timer?.invalidate()
     }
     
     func setupGradientBackground() {

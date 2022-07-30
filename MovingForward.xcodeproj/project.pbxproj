@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E19DBF7128952D870067317F /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E19DBF7028952D870067317F /* MyParticle.sks */; };
 		E1C6F3B928942AF200DE420F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6F3B828942AF200DE420F /* AppDelegate.swift */; };
 		E1C6F3BB28942AF200DE420F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C6F3BA28942AF200DE420F /* SceneDelegate.swift */; };
 		E1C6F3C028942AF200DE420F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C6F3BE28942AF200DE420F /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E19DBF7028952D870067317F /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		E1C6F3B528942AF200DE420F /* MovingForward.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovingForward.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C6F3B828942AF200DE420F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1C6F3BA28942AF200DE420F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				E1C6F3BA28942AF200DE420F /* SceneDelegate.swift */,
 				E1C6F3BE28942AF200DE420F /* Main.storyboard */,
 				E1C6F3CC28942C5800DE420F /* ShowViewController.swift */,
+				E19DBF7028952D870067317F /* MyParticle.sks */,
 				E1C6F3C128942AF500DE420F /* Assets.xcassets */,
 				E1C6F3C328942AF500DE420F /* LaunchScreen.storyboard */,
 				E1C6F3C628942AF500DE420F /* Info.plist */,
@@ -128,6 +131,7 @@
 				E1C6F3C528942AF500DE420F /* LaunchScreen.storyboard in Resources */,
 				E1C6F3C228942AF500DE420F /* Assets.xcassets in Resources */,
 				E1C6F3C028942AF200DE420F /* Main.storyboard in Resources */,
+				E19DBF7128952D870067317F /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
