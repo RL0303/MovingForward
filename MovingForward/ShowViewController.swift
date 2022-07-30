@@ -7,9 +7,13 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
+
 
 
 class ShowViewController: UIViewController {
+    
+    var looper: AVPlayerLooper?
 
     @IBOutlet weak var lyricLabel: UILabel!
     
@@ -24,13 +28,22 @@ class ShowViewController: UIViewController {
         //        view.backgroundColor = UIColor.systemOrange
         setupGradientBackground()
         
+        // music Moving Forward 2019
+        if let url = URL(string: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d7/a1/6d/d7a16d00-c910-ee8d-4201-761a3626be8a/mzaf_9150141223009538380.plus.aac.p.m4a") {
+            let player = AVQueuePlayer()
+            let item = AVPlayerItem(url: url)
+            looper = AVPlayerLooper(player: player, templateItem: item)
+            player.play()
+        }
+        
+        
         //        lyrics
         lyricLabel.text = lyrics[index]
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
             self.nextLyric()
         }
         
-        //        bearGIF
+        // bearGIF
         guard let data = NSDataAsset(name: "animated-bear-image-260")?.data else { return }
         let cfData = data as CFData
         CGAnimateImageDataWithBlock(cfData, nil) { (_, cgImage, _) in
